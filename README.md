@@ -1,7 +1,7 @@
 # ESP32-CAM mit WiFi Connection Manager
 Der Quellcode wurde angepasst um im 'offiziellen' ESP32 Camera Beispiel "CameraWebServer" einen WiFi Connection Manager zu integrieren.
 
-URL - ESP_WifiManager: https://github.com/khoih-prog/ESP_WiFiManager
+URL - ESP_WifiManager: [https://github.com/khoih-prog/ESP_WiFiManager]
 ESP_WiFiManager wurde auf Basis des Beispiels ConfigOnSwitch der Version 1.0.8 eingebunden.
 https://github.com/khoih-prog/ESP_WiFiManager/tree/master/examples/ConfigOnSwitch
 
@@ -27,7 +27,7 @@ Bibliothek ESP_WiFiManager von **Khoi Hoan** installieren.
 WiFiManager.resetSettings enthält in der ESP32 Implementierung einen Fehler.
 Nach der Installation der Bibliothek  die Datei "src/ESP_WiFiManager-Impl.h" durch die Version im GitHub Repository von Khoi Hoan ersetzen.
 
-
+-------
 # Espressives ESP32-CAM example revisited.
 ## Taken from the ESP examples, and modified for reality
 This sketch is a extension/expansion/rework of the 'official' ESP32 Camera example sketch from Espressif:
