@@ -32,20 +32,11 @@
 #define CAMERA_MODULE_OV2640
 //#define CAMERA_MODULE_OV3660
 
-#if __has_include("myconfig.h")
-  // I keep my settings in a seperate header file
-  #include "myconfig.h"
-#else
-  const char* ssid = "my-access-point-ssid";
-  const char* password = "my-access-point-password";
-#endif
+const char* ssid = "my-access-point-ssid";
+const char* password = "my-access-point-password";
 
-// A Name for the Camera. (can be set in myconfig.h)
-#ifdef CAM_NAME
-  char myName[] = CAM_NAME;
-#else
-  char myName[] = "ESP32 camera server";
-#endif
+// A Name for the Camera.
+char myName[] = "EnderCam";
 
 // This will be displayed to identify the firmware
 char myVer[] PROGMEM = __DATE__ " @ " __TIME__;
