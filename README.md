@@ -1,19 +1,18 @@
 # ESP32-CAM mit WiFi Connection Manager
 Der Quellcode wurde angepasst um im 'offiziellen' ESP32 Camera Beispiel "CameraWebServer" einen WiFi Connection Manager zu integrieren.
 
-URL - ESP_WifiManager: [https://github.com/khoih-prog/ESP_WiFiManager]
-ESP_WiFiManager wurde auf Basis des Beispiels ConfigOnSwitch der Version 1.0.8 eingebunden.
-https://github.com/khoih-prog/ESP_WiFiManager/tree/master/examples/ConfigOnSwitch
+URL - ESP_WifiManager: https://github.com/khoih-prog/ESP_WiFiManager  
+ESP_WiFiManager wurde auf Basis des Beispiels ConfigOnSwitch der Version 1.0.8 eingebunden.  
+https://github.com/khoih-prog/ESP_WiFiManager/tree/master/examples/ConfigOnSwitch  
 
-Die Herausforderung ist, dass AutoConnect und "CameraWebServer" jeder einen eigenen Webserver auf Port 80 öffnen und, 
-frei nach Highlander, "es kann nur einen geben". 
+Die Herausforderung ist, dass AutoConnect und "CameraWebServer" jeder einen eigenen Webserver auf Port 80 öffnen und, frei nach Highlander, "es kann nur einen geben". 
 Nach folgender Logik wird beim Start des Arduino der jeweils notwendige Webserver ausgewählt:
 - Sind gespeicherte WiFi Credentials vorhanden, wird CameraWebServer gestartet
 - Fehlen gespeicherte WiFi Credentials, wird das AutoConnect Portal gestartet
 
-URL - AutoConnect: https://github.com/khoih-prog/ESP_WiFiManager
-ESP_WiFiManager wurde auf Basis des Beispiels ConfigOnSwitch der Version 1.0.8 eingebunden.
-https://github.com/khoih-prog/ESP_WiFiManager/tree/master/examples/ConfigOnSwitch
+URL - AutoConnect: https://github.com/khoih-prog/ESP_WiFiManager  
+ESP_WiFiManager wurde auf Basis des Beispiels ConfigOnSwitch der Version 1.0.8 eingebunden.  
+https://github.com/khoih-prog/ESP_WiFiManager/tree/master/examples/ConfigOnSwitch  
 
 Folgende Anpassungen wurden vorgenommen:
 - myconfig.h Support erntfernt
