@@ -17,7 +17,7 @@ https://github.com/khoih-prog/ESP_WiFiManager/tree/master/examples/ConfigOnSwitc
 Folgende Anpassungen wurden vorgenommen:
 - myconfig.h Support erntfernt
 - AutoConnect implementiert
-- GPIO15 mit GND löscht die gespeicherte WLAN Konfiguration und rebootet das Device
+- GPIO15 mit GND verbinden löscht die gespeicherte WLAN Konfiguration und rebootet das Device. Dies wird durch die rote OnboardLED angezeigt.
 
 ## Requirements
 Bibliothek ESP_WiFiManager von **Khoi Hoan** installieren.
