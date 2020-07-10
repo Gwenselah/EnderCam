@@ -199,6 +199,8 @@ void setup() {
     Serial.println("Freeing the HTTP port by rebooting the device!");
     delay(5000);
     ESP.restart();
+  } else {
+    Serial.println("Stored: SSID = " + Router_SSID + ", Pass = <Hidden Key>");
   }
   
 #ifdef LED_PIN  
@@ -298,6 +300,7 @@ void setup() {
 	}
 
 	sensor_t * s = esp_camera_sensor_get();
+  //weitere Optionen: https://randomnerdtutorials.com/esp32-cam-ov2640-camera-settings/
 	//initial sensors are flipped vertically and colors are a bit saturated
 	if (s->id.PID == OV3660_PID) {
 		s->set_vflip(s, 1);//flip it back
@@ -337,11 +340,11 @@ void flashLED(int flashtime)
 void loop() {
 	
   //** AC ** is configuration portal requested?
-  if ((digitalRead(TRIGGER_PIN) == HIGH))
+  if ((digitalRead(TRIGGER_PIN) == LOW))
   {
 
     Serial.println("\nConfiguration Reset requested.");
-
+    flashLED(2000);
     //** AC ** Local intialization. Once its business is done, there is no need to keep it around
     ESP_WiFiManager ESP_wifiManager;
 	  ESP_wifiManager.resetSettings();
