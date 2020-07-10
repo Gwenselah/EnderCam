@@ -6,15 +6,14 @@ Nach folgender Logik wird beim Start des Arduino der jeweils notwendige Webserve
 - Sind gespeicherte WiFi Credentials vorhanden, wird CameraWebServer gestartet
 - Fehlen gespeicherte WiFi Credentials, wird das AutoConnect Portal gestartet
 
-<..TODO RESET Knopf..>
-
 URL - AutoConnect: https://github.com/khoih-prog/ESP_WiFiManager
 ESP_WiFiManager wurde auf Basis des Beispiels ConfigOnSwitch der Version 1.0.8 eingebunden.
 https://github.com/khoih-prog/ESP_WiFiManager/tree/master/examples/ConfigOnSwitch
 
 Folgende Anpassungen wurden vorgenommen:
 - myconfig.h Support erntfernt
-- 
+- AutoConnect implementiert
+- GPIO15 mit GND verbinden löscht die gespeicherte WLAN Konfiguration
 
 
 ****************************************************************************************************************************/

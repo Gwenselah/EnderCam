@@ -1,3 +1,33 @@
+# ESP32-CAM mit WiFi Connection Manager
+Der Quellcode wurde angepasst um im 'offiziellen' ESP32 Camera Beispiel "CameraWebServer" einen WiFi Connection Manager zu integrieren.
+
+URL - ESP_WifiManager: https://github.com/khoih-prog/ESP_WiFiManager
+ESP_WiFiManager wurde auf Basis des Beispiels ConfigOnSwitch der Version 1.0.8 eingebunden.
+https://github.com/khoih-prog/ESP_WiFiManager/tree/master/examples/ConfigOnSwitch
+
+Die Herausforderung ist, dass AutoConnect und "CameraWebServer" jeder einen eigenen Webserver auf Port 80 öffnen und, 
+frei nach Highlander, "es kann nur einen geben". 
+Nach folgender Logik wird beim Start des Arduino der jeweils notwendige Webserver ausgewählt:
+- Sind gespeicherte WiFi Credentials vorhanden, wird CameraWebServer gestartet
+- Fehlen gespeicherte WiFi Credentials, wird das AutoConnect Portal gestartet
+
+URL - AutoConnect: https://github.com/khoih-prog/ESP_WiFiManager
+ESP_WiFiManager wurde auf Basis des Beispiels ConfigOnSwitch der Version 1.0.8 eingebunden.
+https://github.com/khoih-prog/ESP_WiFiManager/tree/master/examples/ConfigOnSwitch
+
+Folgende Anpassungen wurden vorgenommen:
+- myconfig.h Support erntfernt
+- AutoConnect implementiert
+- GPIO15 mit GND löscht die gespeicherte WLAN Konfiguration und rebootet das Device
+
+## Requirements
+Bibliothek ESP_WiFiManager von **Khoi Hoan** installieren.
+
+:warning: **Die Version 1.0.8 enthält für ESP32 einen Bug**: 
+WiFiManager.resetSettings enthält in der ESP32 Implementierung einen Fehler.
+Nach der Installation der Bibliothek  die Datei "src/ESP_WiFiManager-Impl.h" durch die Version im GitHub Repository von Khoi Hoan ersetzen.
+
+
 # Espressives ESP32-CAM example revisited.
 ## Taken from the ESP examples, and modified for reality
 This sketch is a extension/expansion/rework of the 'official' ESP32 Camera example sketch from Espressif:
@@ -83,7 +113,7 @@ I would also like to shoutout to @jmfloyd; who suggested rotating the image in t
 ![Cameras and a Programmer](Docs/webcams.programmer.jpg)
 
 ## Plans
-* Improve Wifi, add a captive portal for setup and fallback, better disconnect/reconnect behaviour.
+* ~~Improve Wifi, add a captive portal for setup and fallback, better disconnect/reconnect behaviour.~~
 * The module has a SD/TF card slot; this is currently unused, but I would like to add the ability to store snapshots; recording Video at low resolution may be possible, but the card interface is too slow for HD video as far as I know.
 * Remove face rcognition to save a Mb+ of code space and then implement over the air updates.
 * Combine current split html pages (one per camera type) into one which adapts as needed.
