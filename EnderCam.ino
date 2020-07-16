@@ -151,7 +151,8 @@ void setup() {
   Serial.println(myVer);
   
   //** AC ** Init ------------------------------------------------------------------------
-  pinMode(TRIGGER_PIN, INPUT);
+  //pinMode(TRIGGER_PIN, INPUT);
+  pinMode(TRIGGER_PIN, INPUT_PULLUP); //*_PULLUP aktiviert den internen Pullup Widerstand
   unsigned long startedAt = millis();
   //Local intialization. Once its business is done, there is no need to keep it around
   // Use this to default DHCP hostname to ESP8266-XXXXXX or ESP32-XXXXXX
@@ -168,9 +169,6 @@ void setup() {
   // Have to create a new function to store in EEPROM/SPIFFS for this purpose
   Router_SSID = ESP_wifiManager.WiFi_SSID();
   Router_Pass = ESP_wifiManager.WiFi_Pass();
-
-  //Remove this line if you do not want to see WiFi password printed
-  Serial.println("Stored: SSID = " + Router_SSID + ", Pass = <Hidden Key>");
 
   // SSID to uppercase
   ssid.toUpperCase();
@@ -295,6 +293,14 @@ void setup() {
 	esp_err_t err = esp_camera_init(&config);
 	if (err != ESP_OK) {
 		Serial.printf("Camera init failed with error 0x%x", err);
+    flashLED(200); 
+    delay(100);
+    flashLED(200);
+    delay(100);
+    flashLED(200);
+#ifdef LED_PIN                    // If we have it; flash it.
+   digitalWrite(LED_PIN, LED_ON);  // On at full power. 
+#endif      
 		return;
 	}
 
