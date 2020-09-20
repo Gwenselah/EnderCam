@@ -18,6 +18,7 @@ Folgende Anpassungen wurden vorgenommen:
 - myconfig.h Support erntfernt
 - AutoConnect implementiert
 - GPIO15 mit GND verbinden löscht die gespeicherte WLAN Konfiguration und rebootet das Device. Dies wird durch die rote OnboardLED angezeigt.
+- Passwort für das Autoconnect WLAN ist "12345678"
 
 ## Requirements
 Bibliothek ESP_WiFiManager von **Khoi Hoan** installieren.
